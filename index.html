@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>बनी और हँसी की घंटी</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Noto Sans Devanagari", Arial;
+  background: skyblue;
+  overflow: hidden;
+}
+
+.scene {
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  position: relative;
+  text-align: center;
+}
+
+.active {
+  display: block;
+}
+
+.ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background: lightgreen;
+}
+
+.character {
+  font-size: 80px;
+  position: absolute;
+  bottom: 120px;
+  animation: move 3s infinite alternate;
+}
+
+@keyframes move {
+  from { left: 10%; }
+  to { left: 60%; }
+}
+
+.text {
+  font-size: 26px;
+  background: rgba(255,255,255,0.8);
+  padding: 15px;
+  margin: 20px;
+  border-radius: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Scene 1 -->
+<div class="scene active">
+  <div class="text">
+    🌈 गिगलवुड शहर में हर कोई हँसता था।
+  </div>
+  <div class="character">🐰</div>
+  <div class="ground"></div>
+</div>
+
+<!-- Scene 2 -->
+<div class="scene">
+  <div class="text">
+    😱 अचानक शहर की सारी हँसी गायब हो गई।
+  </div>
+  <div class="character">🐰</div>
+  <div class="ground"></div>
+</div>
+
+<!-- Scene 3 -->
+<div class="scene">
+  <div class="text">
+    🔔 हँसी की सुनहरी घंटी चोरी हो गई थी।
+  </div>
+  <div class="character">🐢</div>
+  <div class="ground"></div>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene">
+  <div class="text">
+    👾 ग्रम्बो उदास था क्योंकि कोई उसके साथ हँसता नहीं था।
+  </div>
+  <div class="character">👾</div>
+  <div class="ground"></div>
+</div>
+
+<!-- Scene 5 -->
+<div class="scene">
+  <div class="text">
+    😂 बनी फिसल पड़ा और सब हँस पड़े!
+    <br>🔔 हँसी वापस आ गई।
+  </div>
+  <div class="character">🐰👾</div>
+  <div class="ground"></div>
+</div>
+
+<script>
+let scenes = document.querySelectorAll(".scene");
+let index = 0;
+
+setInterval(() => {
+  scenes[index].classList.remove("active");
+  index = (index + 1) % scenes.length;
+  scenes[index].classList.add("active");
+}, 4000);
+</script>
+
+</body>
+</html>
